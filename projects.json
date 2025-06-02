@@ -1,0 +1,1151 @@
+[
+  {
+    "id": "JP25P3A-0012",
+    "name": "SKU SENTIA - Dec'25 Icy Red",
+    "filePath": "C:\\dev\\pmportal\\projects\\JP25P3A-0012 SKU SENTIA - Dec'25 Icy Red\\JP25P3A-0012 SKU SENTIA - Dec'25 Icy Red.xlsx",
+    "dates": [
+      {
+        "G": "G5",
+        "Cat": "launch",
+        "ST": "OPEN",
+        "Task": "Go live - DC and CVS",
+        "Fn": "CO",
+        "Start": 45999,
+        "Due": 45999,
+        "DateST": "confirmed"
+      },
+      {
+        "G": "G5",
+        "Cat": "launch",
+        "ST": "OPEN",
+        "Task": "EC IMS",
+        "Fn": "DG",
+        "Start": 46001,
+        "Due": 46001,
+        "DateST": "confirmed"
+      },
+      {
+        "G": "G5",
+        "Cat": "launch",
+        "ST": "OPEN",
+        "Task": "MD slot",
+        "Fn": "CO",
+        "Start": 46027,
+        "Due": 46040,
+        "DateST": "confirmed"
+      }
+    ]
+  },
+  {
+    "id": "JP25P3A-0012",
+    "name": "SKU SENTIA - Dec'25 Icy Red",
+    "filePath": "C:\\dev\\pmportal\\projects\\JP25P3A-0012 SKU SENTIA - Dec'25 Icy Red\\SKU timeline.xlsx",
+    "dates": []
+  },
+  {
+    "id": "JP25P3A-0016",
+    "name": "IMS (Inventory Management System) delivery 2025",
+    "filePath": "C:\\dev\\pmportal\\projects\\JP25P3A-0016 IMS (Inventory Management System) delivery 2025\\JP25P3A-0016 IMS (Inventory Management System) delivery 2025.xlsx",
+    "dates": [
+      {
+        "G": "G3",
+        "Cat": "Design",
+        "ST": "OPEN",
+        "Task": "Business Requirement lock-in",
+        "Fn": "CO",
+        "Start": 45793,
+        "Due": 45797,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Design",
+        "ST": "OPEN",
+        "Task": "Business Requirement lock-in",
+        "Fn": "DG",
+        "Start": 45793,
+        "Due": 45797,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Design",
+        "ST": "OPEN",
+        "Task": "Business Requirement lock-in",
+        "Fn": "IT",
+        "Start": 45793,
+        "Due": 45797,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Review",
+        "ST": "OPEN",
+        "Task": "PreG3 Functional Review",
+        "Fn": "IT",
+        "Start": 45797,
+        "Due": 45799,
+        "DateST": "TENTATIVE",
+        "Notes": "2 to 4 weeks"
+      },
+      {
+        "G": "G3",
+        "Cat": "Review",
+        "ST": "OPEN",
+        "Task": "PreG3 Functional Review",
+        "Fn": "DG",
+        "Start": 45797,
+        "Due": 45799,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Review",
+        "ST": "OPEN",
+        "Task": "PreG3 Functional Review",
+        "Fn": "CO",
+        "Start": 45797,
+        "Due": 45799,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Review",
+        "ST": "N/A",
+        "Task": "PreG3 Functional Review",
+        "Fn": "MRK",
+        "Start": 45796,
+        "Due": 45799
+      },
+      {
+        "G": "G3",
+        "Cat": "Review",
+        "ST": "N/A",
+        "Task": "PreG3 Functional Review",
+        "Fn": "EA",
+        "Start": 45796,
+        "Due": 45799
+      },
+      {
+        "G": "G3",
+        "Cat": "PGCM",
+        "ST": "OPEN",
+        "Task": "G3 PGCM",
+        "Fn": "PM",
+        "Start": 45803,
+        "Due": 45803,
+        "DateST": "TENTATIVE",
+        "Notes": "at least 1 week from fuctional review completion"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "E&C",
+        "Fn": "PM",
+        "Due": 45824,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "Law",
+        "Fn": "PM",
+        "Due": 45824,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "Data Privacy",
+        "Fn": "PM",
+        "Due": 45824,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "Finace",
+        "Fn": "PM",
+        "Due": 45824,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "InfoSec",
+        "Fn": "PM",
+        "Due": 45824,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "Rick&Control",
+        "Fn": "PM",
+        "Due": 45824,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "EA",
+        "Fn": "PM",
+        "Due": 45824,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "PGCM",
+        "ST": "OPEN",
+        "Task": "G5 PGCM",
+        "Fn": "PM",
+        "Start": 45831,
+        "Due": 45831,
+        "DateST": "CONFIRMED"
+      },
+      {
+        "G": "G5",
+        "Cat": "launch",
+        "ST": "OPEN",
+        "Task": "Go live",
+        "Fn": "CO",
+        "Start": 45838,
+        "Due": 45838,
+        "DateST": "CONFIRMED"
+      }
+    ]
+  },
+  {
+    "id": "JP25P3A-0023",
+    "name": "Enhancement for Gift Purchase feature",
+    "filePath": "C:\\dev\\pmportal\\projects\\JP25P3A-0023 Enhancement for Gift Purchase feature\\JP25P3A-0023 Enhancement for Gift Purchase feature.xlsx",
+    "dates": [
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "E&C",
+        "Fn": "PM",
+        "Due": 45796
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "Law",
+        "Fn": "PM",
+        "Due": 45796
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "Data Privacy",
+        "Fn": "PM",
+        "Due": 45796
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "Finace",
+        "Fn": "PM",
+        "Due": 45796
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "InfoSec",
+        "Fn": "PM",
+        "Due": 45796
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "Rick&Control",
+        "Fn": "PM",
+        "Due": 45796
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "EA",
+        "Fn": "PM",
+        "Due": 45796
+      },
+      {
+        "G": "G5",
+        "Cat": "PGCM",
+        "ST": "OPEN",
+        "Task": "G5 PGCM",
+        "Fn": "PM",
+        "Start": 45803,
+        "Due": 45803
+      },
+      {
+        "G": "G5",
+        "Cat": "launch",
+        "ST": "OPEN",
+        "Task": "Go live",
+        "Start": 45804,
+        "Due": 45804
+      },
+      {
+        "G": "G7",
+        "Cat": "PBOS",
+        "ST": "OPEN",
+        "Task": "Lession Learned submission",
+        "Start": 45804,
+        "Due": 45834,
+        "Notes": "1.5-3 month from go-live date"
+      },
+      {
+        "G": "G7",
+        "Cat": "PGCM",
+        "ST": "OPEN",
+        "Task": "G7 PGCM",
+        "Fn": "PM",
+        "Start": 45852,
+        "Due": 45852,
+        "Notes": "within 3 month from go-live"
+      }
+    ]
+  },
+  {
+    "id": "JP25P3A-0024",
+    "name": "2025 Brand Campaign",
+    "filePath": "C:\\dev\\pmportal\\projects\\JP25P3A-0024 2025 Brand Campaign\\JP25P3A-0024 2025 Brand Campaign.xlsx",
+    "dates": [
+      {
+        "G": "G3",
+        "Cat": "MI",
+        "ST": "OPEN",
+        "Task": "Assets final MI",
+        "Fn": "MKT",
+        "Start": 45770,
+        "Due": 45838,
+        "DateST": "CONFIRMED"
+      },
+      {
+        "G": "G3",
+        "Cat": "Sync",
+        "ST": "OPEN",
+        "Task": "Kick off",
+        "Fn": "MKT",
+        "Start": 45798,
+        "Due": 45798,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Design",
+        "ST": "OPEN",
+        "Task": "BRD creation",
+        "Fn": "MKT",
+        "Start": 45784,
+        "Due": 45798,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Sync",
+        "ST": "OPEN",
+        "Task": "BRD walkthrough to DG",
+        "Fn": "MKT",
+        "Start": 45803,
+        "Due": 45807,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Design",
+        "ST": "OPEN",
+        "Task": "DA creation",
+        "Fn": "DG",
+        "Start": 45810,
+        "Due": 45818,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Design",
+        "ST": "OPEN",
+        "Task": "DP creation",
+        "Fn": "DG",
+        "Start": 45810,
+        "Due": 45818,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Sync",
+        "ST": "OPEN",
+        "Task": "DP walkthrough",
+        "Fn": "DG",
+        "Start": 45818,
+        "Due": 45818,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Design",
+        "ST": "OPEN",
+        "Task": "IT assessment",
+        "Fn": "IT",
+        "Start": 45819,
+        "Due": 45827,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Design",
+        "ST": "OPEN",
+        "Task": "User Story creation",
+        "Fn": "IT",
+        "Start": 45819,
+        "Due": 45827,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Sync",
+        "ST": "OPEN",
+        "Task": "User Story walkthrough",
+        "Fn": "IT",
+        "Start": 45819,
+        "Due": 45827,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Sync",
+        "ST": "OPEN",
+        "Task": "User Story sign-off / tech req freeze",
+        "Fn": "IT",
+        "Start": 45819,
+        "Due": 45827,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Design",
+        "ST": "OPEN",
+        "Task": "CO rollout plan",
+        "Fn": "CO",
+        "Start": 45799,
+        "Due": 45827,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Confirmation",
+        "ST": "OPEN",
+        "Task": "Budget fixed",
+        "Fn": "MKT",
+        "Start": 45838,
+        "Due": 45838,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Confirmation",
+        "ST": "OPEN",
+        "Task": "Go-live date fixed",
+        "Fn": "MKT",
+        "Start": 45838,
+        "Due": 45838,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Design",
+        "ST": "OPEN",
+        "Task": "Biz req lock in",
+        "Fn": "MKT",
+        "Start": 45838,
+        "Due": 45838,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Design",
+        "ST": "OPEN",
+        "Task": "Biz req lock in",
+        "Fn": "DG",
+        "Start": 45838,
+        "Due": 45838,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Design",
+        "ST": "OPEN",
+        "Task": "Biz req lock in",
+        "Fn": "CO",
+        "Start": 45838,
+        "Due": 45838,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Design",
+        "ST": "OPEN",
+        "Task": "Biz req lock in",
+        "Fn": "IT",
+        "Start": 45838,
+        "Due": 45838,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Sync",
+        "ST": "OPEN",
+        "Task": "MSG approval for the rollout plan",
+        "Fn": "MKT",
+        "Start": 45838,
+        "Due": 45838,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Review",
+        "ST": "OPEN",
+        "Task": "PreG3 Functional Review",
+        "Fn": "IT",
+        "Start": 45839,
+        "Due": 45845,
+        "DateST": "TENTATIVE",
+        "Notes": "2 to 4 weeks"
+      },
+      {
+        "G": "G3",
+        "Cat": "Review",
+        "ST": "OPEN",
+        "Task": "PreG3 Functional Review",
+        "Fn": "DG",
+        "Start": 45839,
+        "Due": 45845,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Review",
+        "ST": "OPEN",
+        "Task": "PreG3 Functional Review",
+        "Fn": "CO",
+        "Start": 45839,
+        "Due": 45845,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Review",
+        "ST": "OPEN",
+        "Task": "PreG3 Functional Review",
+        "Fn": "MRK",
+        "Start": 45839,
+        "Due": 45845,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Review",
+        "ST": "OPEN",
+        "Task": "PreG3 Functional Review",
+        "Fn": "EA",
+        "Start": 45839,
+        "Due": 45845,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "PGCM",
+        "ST": "OPEN",
+        "Task": "G3 PGCM",
+        "Fn": "PM",
+        "Start": 45852,
+        "Due": 45852,
+        "DateST": "TENTATIVE",
+        "Notes": "at least 1 week from fuctional review completion"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "E&C",
+        "Fn": "PM",
+        "Start": 45853,
+        "Due": 45915,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "Law",
+        "Fn": "PM",
+        "Start": 45853,
+        "Due": 45915,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "Data Privacy",
+        "Fn": "PM",
+        "Start": 45853,
+        "Due": 45915,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "Finace",
+        "Fn": "PM",
+        "Start": 45853,
+        "Due": 45915,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "InfoSec",
+        "Fn": "PM",
+        "Start": 45853,
+        "Due": 45915,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "Rick&Control",
+        "Fn": "PM",
+        "Start": 45853,
+        "Due": 45915,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "EA",
+        "Fn": "PM",
+        "Start": 45853,
+        "Due": 45915,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "PGCM",
+        "ST": "OPEN",
+        "Task": "G5 PGCM",
+        "Fn": "PM",
+        "Start": 45922,
+        "Due": 45922,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "launch",
+        "ST": "OPEN",
+        "Task": "Go live",
+        "Fn": "MKT",
+        "Start": 45938,
+        "Due": 45938,
+        "DateST": "CONFIRMED"
+      },
+      {
+        "G": "G5",
+        "Cat": "launch",
+        "ST": "OPEN",
+        "Task": "DG release - iqos.jp",
+        "Fn": "DG",
+        "Start": 45938,
+        "Due": 45938,
+        "DateST": "CONFIRMED"
+      },
+      {
+        "G": "G5",
+        "Cat": "launch",
+        "ST": "OPEN",
+        "Task": "DG release - iqosphere",
+        "Fn": "DG",
+        "Start": 45938,
+        "Due": 45938,
+        "DateST": "CONFIRMED"
+      },
+      {
+        "G": "G5",
+        "Cat": "launch",
+        "ST": "OPEN",
+        "Task": "DG release - Instagram",
+        "Fn": "DG",
+        "Start": 45938,
+        "Due": 45938,
+        "DateST": "CONFIRMED"
+      },
+      {
+        "G": "G5",
+        "Cat": "launch",
+        "ST": "OPEN",
+        "Task": "DG release - LINE",
+        "Fn": "DG",
+        "Start": 45938,
+        "Due": 45938,
+        "DateST": "CONFIRMED"
+      },
+      {
+        "G": "G5",
+        "Cat": "launch",
+        "ST": "OPEN",
+        "Task": "DG release - eDM",
+        "Fn": "DG",
+        "Start": 45938,
+        "Due": 45938,
+        "DateST": "CONFIRMED"
+      },
+      {
+        "G": "G5",
+        "Cat": "launch",
+        "ST": "OPEN",
+        "Task": "DG release - ads",
+        "Fn": "DG",
+        "Start": 45938,
+        "Due": 45938,
+        "DateST": "CONFIRMED"
+      },
+      {
+        "G": "G5",
+        "Cat": "launch",
+        "ST": "OPEN",
+        "Task": "commence IMS",
+        "Fn": "CO",
+        "Start": 45938,
+        "Due": 45938,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "launch",
+        "ST": "OPEN",
+        "Task": "CVS",
+        "Fn": "CO",
+        "Start": 45938,
+        "Due": 45938,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "launch",
+        "ST": "OPEN",
+        "Task": "FSS",
+        "Fn": "CO",
+        "Start": 45938,
+        "Due": 45938,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "launch",
+        "ST": "OPEN",
+        "Task": "SiS",
+        "Fn": "CO",
+        "Start": 45938,
+        "Due": 45938,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "launch",
+        "ST": "OPEN",
+        "Task": "iPad tools",
+        "Fn": "CO",
+        "Start": 45938,
+        "Due": 45938,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "launch",
+        "ST": "OPEN",
+        "Task": "HORECA",
+        "Fn": "CO",
+        "Start": 45938,
+        "Due": 45938,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "launch",
+        "ST": "OPEN",
+        "Task": "LAMP",
+        "Fn": "CO",
+        "Start": 45938,
+        "Due": 45938,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "launch",
+        "ST": "OPEN",
+        "Task": "PASPA",
+        "Fn": "CO",
+        "Start": 45938,
+        "Due": 45938,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G7",
+        "Cat": "PBOS",
+        "ST": "OPEN",
+        "Task": "Lession Learned submission",
+        "Fn": "MKT",
+        "Start": 46037,
+        "Due": 46037,
+        "DateST": "TENTATIVE",
+        "Notes": "1.5-3 month from go-live date"
+      },
+      {
+        "G": "G7",
+        "Cat": "PGCM",
+        "ST": "OPEN",
+        "Task": "G7 PGCM",
+        "Fn": "PM",
+        "Start": 46041,
+        "Due": 46041,
+        "DateST": "TENTATIVE",
+        "Notes": "within 3 month from go-live"
+      }
+    ]
+  },
+  {
+    "id": "JP25P3A-0028",
+    "name": "Impact Analysis (IQOSPHERE from Classic to DEEP)",
+    "filePath": "C:\\dev\\pmportal\\projects\\JP25P3A-0028 Impact Analysis (IQOSPHERE from Classic to DEEP)\\JP25P3A-0028 Impact Analysis (IQOSPHERE from Classic to DEEP).xlsx",
+    "dates": [
+      {
+        "G": "G3",
+        "Cat": "Review",
+        "ST": "OPEN",
+        "Task": "PreG3 Functional Review",
+        "Fn": "IT",
+        "Start": 45789,
+        "Due": 45796,
+        "DateST": "TENTATIVE",
+        "Notes": "2 to 4 weeks"
+      },
+      {
+        "G": "G3",
+        "Cat": "Review",
+        "ST": "OPEN",
+        "Task": "PreG3 Functional Review",
+        "Fn": "DG",
+        "Start": 45789,
+        "Due": 45796,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Review",
+        "ST": "OPEN",
+        "Task": "PreG3 Functional Review",
+        "Fn": "CO",
+        "Start": 45789,
+        "Due": 45796,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Review",
+        "ST": "OPEN",
+        "Task": "PreG3 Functional Review",
+        "Fn": "MRK",
+        "Start": 45789,
+        "Due": 45796,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Review",
+        "ST": "OPEN",
+        "Task": "PreG3 Functional Review",
+        "Fn": "EA",
+        "Start": 45789,
+        "Due": 45796,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "PGCM",
+        "ST": "OPEN",
+        "Task": "G3 PGCM",
+        "Fn": "PM",
+        "Start": 45803,
+        "Due": 45803,
+        "DateST": "TENTATIVE",
+        "Notes": "at least 1 week from fuctional review completion"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "E&C",
+        "Fn": "PM",
+        "Start": 45817,
+        "Due": 45824,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "Law",
+        "Fn": "PM",
+        "Start": 45817,
+        "Due": 45824,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "Data Privacy",
+        "Fn": "PM",
+        "Start": 45817,
+        "Due": 45824,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "Finace",
+        "Fn": "PM",
+        "Start": 45817,
+        "Due": 45824,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "InfoSec",
+        "Fn": "PM",
+        "Start": 45817,
+        "Due": 45824,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "Rick&Control",
+        "Fn": "PM",
+        "Start": 45817,
+        "Due": 45824,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "EA",
+        "Fn": "PM",
+        "Start": 45817,
+        "Due": 45824,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "PGCM",
+        "ST": "OPEN",
+        "Task": "G5 PGCM",
+        "Fn": "PM",
+        "Start": 45831,
+        "Due": 45831,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "launch",
+        "ST": "OPEN",
+        "Task": "Go live",
+        "Start": 45838,
+        "Due": 45838,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G7",
+        "Cat": "PGCM",
+        "ST": "OPEN",
+        "Task": "G7 PGCM",
+        "Fn": "PM",
+        "Start": 45866,
+        "Due": 45866,
+        "DateST": "TENTATIVE",
+        "Notes": "within 3 month from go-live"
+      }
+    ]
+  },
+  {
+    "id": "JP25P3A-0028",
+    "name": "Migration of IQOSPHERE application to DEEP cloud",
+    "filePath": "C:\\dev\\pmportal\\projects\\JP25P3A-0028 Migration of IQOSPHERE application to DEEP cloud\\JP25P3A-0028 Migration of IQOSPHERE application to DEEP cloud.xlsx",
+    "dates": [
+      {
+        "G": "G3",
+        "Cat": "Review",
+        "ST": "OPEN",
+        "Task": "PreG3 Functional Review",
+        "Fn": "IT",
+        "Due": 45796,
+        "DateST": "TENTATIVE",
+        "Notes": "2 to 4 weeks"
+      },
+      {
+        "G": "G3",
+        "Cat": "Review",
+        "ST": "OPEN",
+        "Task": "PreG3 Functional Review",
+        "Fn": "DG",
+        "Due": 45796,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Review",
+        "ST": "OPEN",
+        "Task": "PreG3 Functional Review",
+        "Fn": "CO",
+        "Due": 45796,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Review",
+        "ST": "OPEN",
+        "Task": "PreG3 Functional Review",
+        "Fn": "MRK",
+        "Due": 45796,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "Review",
+        "ST": "OPEN",
+        "Task": "PreG3 Functional Review",
+        "Fn": "EA",
+        "Due": 45796,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G3",
+        "Cat": "PGCM",
+        "ST": "OPEN",
+        "Task": "G3 PGCM",
+        "Fn": "PM",
+        "Start": 45803,
+        "Due": 45803,
+        "DateST": "TENTATIVE",
+        "Notes": "at least 1 week from fuctional review completion"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "E&C",
+        "Fn": "PM",
+        "Due": 45824,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "Law",
+        "Fn": "PM",
+        "Due": 45824,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "Data Privacy",
+        "Fn": "PM",
+        "Due": 45824,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "Finace",
+        "Fn": "PM",
+        "Due": 45824,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "InfoSec",
+        "Fn": "PM",
+        "Due": 45824,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "Rick&Control",
+        "Fn": "PM",
+        "Due": 45824,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "Due Diligence",
+        "ST": "OPEN",
+        "Task": "EA",
+        "Fn": "PM",
+        "Due": 45824,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "PGCM",
+        "ST": "OPEN",
+        "Task": "G5 PGCM",
+        "Fn": "PM",
+        "Start": 45831,
+        "Due": 45831,
+        "DateST": "TENTATIVE"
+      },
+      {
+        "G": "G5",
+        "Cat": "sync",
+        "ST": "OPEN",
+        "Task": "System cutover",
+        "Fn": "IT",
+        "Start": 45838,
+        "Due": 45838,
+        "DateST": "TENTATIVE"
+      }
+    ]
+  }
+]

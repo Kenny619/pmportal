@@ -1,0 +1,88 @@
+import { Checkbox } from "@/components/ui/checkbox";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { ChartBarBig, FunnelPlus, FunnelX } from "lucide-react";
+import {
+	filterStore,
+	type Filter,
+	type FilterState,
+} from "@/stores/calendarStore";
+import { Button } from "@/components/ui/button";
+export default function CalendarFilter() {
+	const currentFilter = filterStore(
+		(state: FilterState) => state.currentFilter,
+	);
+	const defaultFilter = filterStore(
+		(state: FilterState) => state.defaultFilter,
+	);
+	const updateFilter = filterStore((state: FilterState) => state.updateFilter);
+	const selectGroupFilter = filterStore(
+		(state: FilterState) => state.selectGroupFilter,
+	);
+	const clearGroupFilter = filterStore(
+		(state: FilterState) => state.clearGroupFilter,
+	);
+	const selectAllFilter = filterStore(
+		(state: FilterState) => state.selectAllFilter,
+	);
+	const clearAllFilter = filterStore(
+		(state: FilterState) => state.clearAllFilter,
+	);
+	return (
+		<ScrollArea className="h-[calc(100vh-10rem)]">
+			<div className="w-full m-0 py-2 px-4 ">
+				{Object.keys(defaultFilter).map((key) => (
+					<div className="my-6" key={key}>
+						<div className="flex gap-3 my-2 border-b pb-2 border-neutral-300">
+							<div className="grow flex gap-1 items-center">
+								<ChartBarBig size={14} strokeWidth={2} className="" />
+								<h2 className="text-xxs">{key}</h2>
+							</div>
+							<Button
+								variant="ghost"
+								className="flex gap-1 items-center m-0"
+								onClick={() => selectGroupFilter(key as keyof Filter)}
+								onKeyDown={(e) => {
+									if (e.key === "Enter") {
+										selectGroupFilter(key as keyof Filter);
+									}
+								}}
+							>
+								<FunnelPlus size={12} strokeWidth={1.5} className="" />
+								<span className="text-xxs">Select All</span>
+							</Button>
+							<Button
+								variant="ghost"
+								className="flex gap-1 items-center m-0"
+								onClick={() => clearGroupFilter(key as keyof Filter)}
+								onKeyDown={(e) => {
+									if (e.key === "Enter") {
+										clearGroupFilter(key as keyof Filter);
+									}
+								}}
+							>
+								<FunnelX size={12} strokeWidth={1.5} className="" />
+								<span className="text-xxs">Clear All </span>
+							</Button>
+						</div>
+						<div className="flex flex-col gap-2 text-xs ">
+							{defaultFilter[key as keyof Filter].map((item) => (
+								<div className="flex" key={`${item}`}>
+									<Checkbox
+										id={item}
+										checked={currentFilter[key as keyof Filter].includes(item)}
+										onCheckedChange={() => {
+											updateFilter(key as keyof Filter, item);
+										}}
+									/>
+									<label htmlFor={item} className="ml-2">
+										{item}
+									</label>
+								</div>
+							))}
+						</div>
+					</div>
+				))}
+			</div>
+		</ScrollArea>
+	);
+}
