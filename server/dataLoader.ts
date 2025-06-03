@@ -1,15 +1,16 @@
 import { promises as fs } from "node:fs";
 import xlsx from "xlsx";
 import path from "node:path";
+import process from "node:process";
 
 ////constants
-const startDir = "C:\\dev\\pmportal\\projects";
+const projectsDir = await getProjectsDirectory();
 const sheetName = "timeline";
 const SheetNamePGC = "pgcms";
 
 ////run code
 export async function dataLoader() {
-    const excelFiles = await getExcelFiles(startDir);
+    const excelFiles = await getExcelFiles(projectsDir);
     // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     const projects: { id: string, name: string, filePath: string, dates: any[] }[] = [];
     const pgcmDates = new Set<number>();
@@ -35,7 +36,35 @@ export async function dataLoader() {
 }
 
 
+
+
 ////functions
+
+//get excel file repository
+async function getProjectsDirectory(): Promise<string> {
+    const executionPath = process.cwd();
+    const filePath = path.join(executionPath, 'projectsDirectory.txt');
+
+    try {
+        // Check if the file exists by attempting to access it
+        await fs.access(filePath);
+
+        // Read the file content
+        const content = await fs.readFile(filePath, 'utf-8');
+        const firstLine = content.split(/\r?\n/)[0].trim();
+
+        if (firstLine) {
+            return firstLine;
+        }
+    } catch (err) {
+        // File does not exist or is not accessible
+    }
+
+    // Fallback to default projects directory
+    return path.join(executionPath, 'projects');
+}
+
+
 
 function getProjectIdName(filePath: string) {
     const fileName = filePath.split("\\");
