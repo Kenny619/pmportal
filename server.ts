@@ -2,7 +2,7 @@ import { Hono } from 'hono'
 import { serveStatic } from '@hono/node-server/serve-static'
 import { serve } from '@hono/node-server'
 import { cors } from 'hono/cors'
-import { fetchData } from './server/fetchData'
+import { fetchData, test } from './server/fetchData'
 
 const app = new Hono()
 app.use('*', cors({
@@ -15,6 +15,7 @@ app.use('/favicon.svg', serveStatic({ path: './dist/favicon.svg' }))
 // Serve index.html for all other routes (SPA fallback)
 app.get('*', serveStatic({ path: './dist/index.html' }))
 app.get('/load/', async (c) => await fetchData(c));
+app.get('/test/', async (c) => await test(c));
 
 // Start server on localhost:3000
 serve({

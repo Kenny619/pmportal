@@ -111,7 +111,7 @@ export default function CalendarDateNav() {
 				{/* datanav parent div */}
 				<div className="w-full flex flex-col lg:flex-row items-center lg:justify-between bg-neutral-50 p-2 mt-2 lg:mt-0 mb-4 rounded-xs h-20 lg:h-10 relative ">
 					{/* date range */}
-					<div className="item-start text-xs font-bold mt-1 lg:mt-0 lg:ml-1 whitespace-nowrap">
+					<div className="item-start text-sm font-bold mt-1 lg:mt-0 lg:ml-1 whitespace-nowrap">
 						{stView
 							? `${stCurMonth.toLocaleString("en-US", { month: "long" })} - ${stNextMonth.toLocaleString("en-US", { month: "long" })}, ${stCurMonth.getFullYear()}`
 							: `${stStartDays.toLocaleString("en-US", { month: "long", day: "numeric" })} - ${stFiveDays[4].toLocaleString("en-US", { month: "long", day: "numeric" })}, ${stStartDays.getFullYear()}`}

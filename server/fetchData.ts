@@ -21,6 +21,40 @@ export async function fetchData(c: Context) {
     return c.json(data);
 }
 
+export async function test(c: Context){
+    const excelFiles = await getExcelFiles(projectsDir);
+    const testExcel = excelFiles.filter(f => /TEST/.test(f));
+    const filePath = testExcel[0];
+    const workbook = new ExcelJS.Workbook();
+
+ // 1. Load the existing Excel file
+ await workbook.xlsx.readFile(filePath);
+
+ // 2. Access the worksheet
+ const worksheet = workbook.getWorksheet(sheetName);
+     let cnt = 1;
+
+ // 3. Read and modify data (example: uppercase all string values in column A)
+ worksheet.eachRow((row, rowNumber) => {
+     const a = row.getCell(1); // Column A
+     const b = row.getCell(2); // Column B
+
+    if (a.value === null && /G\d/.test(b.value) ) {
+    console.log(rowNumber, a.value, b.value);
+        a.value = cnt;
+        cnt++;
+    }
+ });
+
+// 4. Overwrite the original file
+await workbook.xlsx.writeFile(filePath);
+
+console.log(`Excel file updated: ${filePath}`);
+return c.json("done");
+
+
+}
+
 ////run code
 export async function dataLoader() {
     const excelFiles = await getExcelFiles(projectsDir);

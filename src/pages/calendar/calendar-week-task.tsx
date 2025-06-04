@@ -48,21 +48,20 @@ export default function CalenderWeekTask(task: Task) {
 					rel="noopener noreferrer"
 					className="hover:cursor-pointer hover:text-blue-700 "
 				>
-					<Badge
-						className={"text-xxxxs rounded-xs py-0 my-0 px-1 mr-1 font-normal "}
+					<div
+						className={"text-xxxxs rounded-xs  my-0 px-1 py-0.5 mr-1 font-normal text-white "}
 						style={{ backgroundColor: task.color }}
 					>
 						{task.id}
-					</Badge>
+					</div>
 				</a>
-				<Badge
-					variant="outline"
-					className="text-xxxxs rounded-xs py-0 px-1 mr-1"
+				<div
+					className="text-xxxxs rounded-xs py-0.5 px-1 mr-1 border"
 				>
 					{task.G}
-				</Badge>
+				</div>
 				<div
-					className={`text-xxxxs rounded-xs py-0 w-auto px-4 ml-auto ${statusColor(task.Status)} text-white`}
+					className={`text-xxxxs rounded-xs py-0.5 w-auto px-4 ml-auto ${statusColor(task.Status)} text-white`}
 				>
 					{task.Status}
 				</div>
@@ -78,7 +77,7 @@ export default function CalenderWeekTask(task: Task) {
 				</a>
 			</div>
 
-			<div className="w-full py-1 text-xxs leading-[1.2] my-1 text-gray-700">
+			<div className="w-full py-1 text-xs leading-[1.2] my-1 text-gray-700">
 				{task.Task}
 			</div>
 			{task.Notes ? (

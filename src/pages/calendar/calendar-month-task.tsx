@@ -60,7 +60,7 @@ export default function CalenderMonthTask(task: Task) {
 						{task.Status}
 					</div>
 				</div>
-				<div className="text-xxxxs leading-[1.2] text-gray-700 break-words">
+				<div className="text-xxxs leading-[1.2] text-gray-700 break-words">
 					<a
 						href={`https://pmjpn.service-now.com/sp_pbos?id=search&q=${task.id}`}
 						target="_blank"
@@ -72,27 +72,27 @@ export default function CalenderMonthTask(task: Task) {
 				</div>
 			</div>
 
-			<div className="text-xxxxs w-full py-1 text-sm leading-[1.2] text-gray-700 font-bold">
+			<div className="text-xxs w-full py-1 text-sm leading-[1.2] text-black">
 				{task.Task}
 			</div>
-			<div className="w-full mt-1 text-xxxxs flex flex-col lg:flex-wrap  gap-1">
+			<div className="w-full mt-1 text-xxxs flex flex-col lg:flex-wrap  gap-1">
 				<div className="flex justify-start">
 					<div className="flex items-center ">
-						<SquareFunction size={11} strokeWidth={1} />
-						<div className="ml-1 mr-1 w-min-[100px] ">
+						<SquareFunction size={13} strokeWidth={1} />
+						<div className="ml-1 mr-1 w-min-[33%] ">
 							{task.Fn ? task.Fn : "-"}
 						</div>
 					</div>
 					<div className="flex items-center ">
-						<CircleUserRound size={11} strokeWidth={1} />
-						<span className="ml-1 mr-1 w-min[100px]">
+						<CircleUserRound size={13} strokeWidth={1} />
+						<span className="ml-1 mr-1">
 							{task.Owner ? task.Owner : "-"}
 						</span>
 					</div>
 				</div>
 				<div className="flex items-center">
 					<CalendarCheck
-						size={11}
+						size={13}
 						strokeWidth={1}
 						className={`${dateSTColor(task.DateST)}`}
 					/>
