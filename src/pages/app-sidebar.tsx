@@ -1,7 +1,6 @@
-import { Calendar, Home } from "lucide-react";
+import { Calendar, Home, Settings } from "lucide-react";
 
-import {
-	Sidebar,
+import { Sidebar,
 	SidebarContent,
 	SidebarGroup,
 	SidebarGroupContent,
@@ -28,11 +27,11 @@ const items = [
 		url: "/calendar",
 		icon: Calendar,
 	},
-	// {
-	// 	title: "Settings",
-	// 	url: "/settings",
-	// 	icon: Settings,
-	// },
+	{
+		title: "Settings",
+		url: "/settings",
+		icon: Settings,
+	},
 ];
 
 export function AppSidebar() {

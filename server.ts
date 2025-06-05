@@ -14,8 +14,15 @@ app.use('/favicon.svg', serveStatic({ path: './dist/favicon.svg' }))
 
 // Serve index.html for all other routes (SPA fallback)
 app.get('*', serveStatic({ path: './dist/index.html' }))
+
+//verify 
+app.get('/verify/', async (c) => await verify(c));
+
+//save directory path
+app.get('/save/', async (c) => await save(c))
+
+//load wbs data
 app.get('/load/', async (c) => await fetchData(c));
-app.get('/test/', async (c) => await test(c));
 
 // Start server on localhost:3000
 serve({

@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import Layout from "../layout";
 import {
 	Card,
@@ -9,8 +10,11 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 
+import {Input} from "@/components/ui/input";
 export default function Settings() {
 	const breadcrumb = [{ label: "Settings", link: "/settings" }];
+
+	//check pro
 
 	return (
 		<Layout breadcrumb={breadcrumb}>
@@ -22,55 +26,30 @@ export default function Settings() {
 				<div className="w-full ">
 					<Card className="w-full rounded-xs">
 						<CardHeader>
+
+
+
 							<CardTitle>Excel file directory </CardTitle>
 							<CardDescription>
-								Please select the directory where the excel files are located.
+								Please paste the full directory path where all the excel files are located
+								<br/> e.g. C:\Users\konishi3\OneDrive - Philip Morris International\projects\
 							</CardDescription>
 							<div className="flex items-center gap-2 mt-4">
-								<input
-									type="file"
-									webkitdirectory="true"
-									directory="true"
-									className="hidden"
-									multiple={false}
-									id="directoryInput"
-									onChange={(e) => {
-										const files = e.target.files;
-										if (files && files.length > 0) {
-											// Get the directory path from the first file
-											const path = files[0].webkitRelativePath.split("/")[0];
-											// Get current working directory path
-											const currentPath = window.location.origin;
-											const directoryPath = `${currentPath}/${path}`;
-											// Update displayed path
-											const displayElement =
-												document.getElementById("selectedPath");
-											if (displayElement) {
-												displayElement.textContent = directoryPath;
-											}
-										}
-									}}
-								/>
-								<button
-									onClick={() =>
-										document.getElementById("directoryInput")?.click()
-									}
-									className="px-4 py-2 bg-primary text-primary-foreground hover:bg-primary/90 rounded-md"
-									type="button"
-								>
-									Select Directory
-								</button>
+								<Input placeholder="excel files directory path" />
+								<Button type="submit" variant="outline">
+									Verify
+								</Button>
+								 								
 								<span
 									id="selectedPath"
 									className="text-sm text-muted-foreground break-all"
 								>
-									No directory selected
 								</span>
 							</div>
-							<CardAction>Card Action</CardAction>
+							<CardAction>status badge</CardAction>
 						</CardHeader>
 						<CardContent>
-							<p>Card Content</p>
+							<p>* placeholder - verification result</p>
 						</CardContent>
 						<CardFooter>
 							<p>Card Footer</p>

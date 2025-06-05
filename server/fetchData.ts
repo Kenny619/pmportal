@@ -3,7 +3,6 @@ import type { Context } from "hono";
 import { promises as fs } from "node:fs";
 import xlsx from "xlsx";
 
-import ExcelJS from 'exceljs';
 
 import path from "node:path";
 import process from "node:process";
@@ -21,39 +20,22 @@ export async function fetchData(c: Context) {
     return c.json(data);
 }
 
-export async function test(c: Context){
-    const excelFiles = await getExcelFiles(projectsDir);
-    const testExcel = excelFiles.filter(f => /TEST/.test(f));
-    const filePath = testExcel[0];
-    const workbook = new ExcelJS.Workbook();
+export async function verify(c:Context){
+    /*
+    1. check if the file exists
+    2. check if the file contains a valid path
+    3. check if excel files exists under the path
+    */
 
- // 1. Load the existing Excel file
- await workbook.xlsx.readFile(filePath);
-
- // 2. Access the worksheet
- const worksheet = workbook.getWorksheet(sheetName);
-     let cnt = 1;
-
- // 3. Read and modify data (example: uppercase all string values in column A)
- worksheet.eachRow((row, rowNumber) => {
-     const a = row.getCell(1); // Column A
-     const b = row.getCell(2); // Column B
-
-    if (a.value === null && /G\d/.test(b.value) ) {
-    console.log(rowNumber, a.value, b.value);
-        a.value = cnt;
-        cnt++;
+    let output = {
+        path: "",
+        projectFilesVerified: false,
+        isError: false,
+        error: "",
     }
- });
-
-// 4. Overwrite the original file
-await workbook.xlsx.writeFile(filePath);
-
-console.log(`Excel file updated: ${filePath}`);
-return c.json("done");
-
 
 }
+
 
 ////run code
 export async function dataLoader() {
@@ -95,6 +77,7 @@ async function getProjectsDirectory(): Promise<string> {
     try {
         // Check if the file exists by attempting to access it
         await fs.access(filePath);
+        console.log({filePath});
 
         // Read the file content
         const content = await fs.readFile(filePath, 'utf-8');
@@ -134,30 +117,6 @@ async function getExcelFiles(dir: string, fileList: string[] = []) {
 }
 
 
-async function addRowNumber(filePath: string){
-    
-    const workbook = new ExcelJS.Workbook();
-
-    // 1. Load the existing Excel file
-    await workbook.xlsx.readFile(filePath);
-
-    // 2. Access the first worksheet
-    const worksheet = workbook.getWorksheet(sheetName);
-
-    // 3. Read and modify data (example: uppercase all string values in column A)
-    worksheet.eachRow((row, rowNumber) => {
-        const cell = row.getCell(1); // Column A
-        if (cell.value === '' && row.getCell(2) !== "G" && row.getCell(2) !== "") {
-            cell.value = rowNumber;
-        }
-    });
-
-// 4. Overwrite the original file
-await workbook.xlsx.writeFile(filePath);
-
-console.log(`Excel file updated: ${filePath}`);
-
-}
 //Acquire timeline JSON data from excel file.
 async function getTimeline(filePath: string) {
     const file = await fs.readFile(filePath);
@@ -172,11 +131,6 @@ async function getTimeline(filePath: string) {
             return { RowNum: index+1, G, Cat, ST, Task, Fn, Owner, Start, Due, DateST, Notes };
         });
 
-        if(/JP25P3A-0000/.test(filePath)){
-            
-            console.log("editing TEST");
-            addRowNumber(filePath);
-        }
 
         return timeline;
 
