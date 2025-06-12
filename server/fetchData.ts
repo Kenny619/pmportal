@@ -3,6 +3,7 @@ import { promises as fs } from "node:fs";
 import xlsx from "xlsx";
 import path from "node:path";
 import process from "node:process";
+import Xls from "./handler.excel.class.ts";
 
 ////constants
 const sourceFileName = "projects.txt";
@@ -11,6 +12,12 @@ const sheetName = "timeline";
 const SheetNamePGC = "pgcms";
 
 export async function fetchData(c: Context) {
+    const xls = new Xls();
+    const data = await xls.loadExcelData();
+    return c.json(data);
+}
+
+export async function fetchData2(c: Context) {
     const data = await dataLoader();
     const d = new Date().toISOString();
     console.log(d, "dataLoader done");
@@ -18,7 +25,7 @@ export async function fetchData(c: Context) {
 }
 
 
-export async function verify(c:Context){
+export async function verify(c: Context) {
     /*
     1. check if the file exists
     2. check if the file contains a valid path
@@ -34,27 +41,27 @@ export async function verify(c:Context){
         error: "",
     }
 
-   const executionPath = process.cwd();
-   const projectTxtPath = path.join(executionPath, sourceFileName);
-   
-   try{
-    fs.access(projectTxtPath);
-    }catch(e){
+    const executionPath = process.cwd();
+    const projectTxtPath = path.join(executionPath, sourceFileName);
+
+    try {
+        fs.access(projectTxtPath);
+    } catch (e) {
         output.error = "missing project.txt";
         return c.json(output);
     }
 
-    try{
+    try {
         projectTxtContent = await fs.readFile(projectTxtPath, 'utf-8');
-    }catch(e){
+    } catch (e) {
         output.error = `Could not open ${projectTxtPath}`;
         return c.json(output);
     }
 
-    try{
+    try {
         projectSourcePath = projectTxtContent.split(/\r?\n/)[0].trim();
         //read directory, report the result.
-    }catch(e){
+    } catch (e) {
 
         output.error = `Could not open ${projectTxtPath}`;
         return c.json(output);
@@ -103,7 +110,7 @@ async function getProjectsDirectory(): Promise<string> {
     try {
         // Check if the file exists by attempting to access it
         await fs.access(filePath);
-        console.log({filePath});
+        console.log({ filePath });
 
         // Read the file content
         const content = await fs.readFile(filePath, 'utf-8');
@@ -152,13 +159,13 @@ async function getTimeline(filePath: string) {
 
     const timeline = data
         .filter((d: any) => Object.hasOwn(d, "Due") && d.Due !== "-" && d.G !== "G" && d.ST !== "N/A")
-        .map((row: any, index:number) => {
+        .map((row: any, index: number) => {
             const { G, Cat, ST, Task, Fn, Owner, Start, Due, DateST, Notes } = row;
-            return { RowNum: index+1, G, Cat, ST, Task, Fn, Owner, Start, Due, DateST, Notes };
+            return { RowNum: index + 1, G, Cat, ST, Task, Fn, Owner, Start, Due, DateST, Notes };
         });
 
 
-        return timeline;
+    return timeline;
 
 }
 
