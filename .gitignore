@@ -1,3 +1,12 @@
+# biz files
+.xlsx
+.xls
+.doc
+.docx
+.ppt
+.pptx
+.pdf
+
 # Logs
 logs
 *.log

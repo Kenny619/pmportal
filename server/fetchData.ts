@@ -1,9 +1,6 @@
 import type { Context } from "hono";
-//import { dataLoader } from "./dataLoader";
 import { promises as fs } from "node:fs";
 import xlsx from "xlsx";
-
-
 import path from "node:path";
 import process from "node:process";
 
@@ -20,6 +17,7 @@ export async function fetchData(c: Context) {
     return c.json(data);
 }
 
+
 export async function verify(c:Context){
     /*
     1. check if the file exists
@@ -27,11 +25,39 @@ export async function verify(c:Context){
     3. check if excel files exists under the path
     */
 
+    let projectTxtContent = "";
+    let projectSourcePath = "";
     let output = {
-        path: "",
+        projectPath: "",
         projectFilesVerified: false,
         isError: false,
         error: "",
+    }
+
+   const executionPath = process.cwd();
+   const projectTxtPath = path.join(executionPath, sourceFileName);
+   
+   try{
+    fs.access(projectTxtPath);
+    }catch(e){
+        output.error = "missing project.txt";
+        return c.json(output);
+    }
+
+    try{
+        projectTxtContent = await fs.readFile(projectTxtPath, 'utf-8');
+    }catch(e){
+        output.error = `Could not open ${projectTxtPath}`;
+        return c.json(output);
+    }
+
+    try{
+        projectSourcePath = projectTxtContent.split(/\r?\n/)[0].trim();
+        //read directory, report the result.
+    }catch(e){
+
+        output.error = `Could not open ${projectTxtPath}`;
+        return c.json(output);
     }
 
 }
