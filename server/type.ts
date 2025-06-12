@@ -1,49 +1,35 @@
-
+export interface Timeline {
+    TaskId?: string;
+    Stage: string;
+    Category: string;
+    Status: string;
+    TaskName: string;
+    Function?: string;
+    OwnerName?: string;
+    StartDate?: number;
+    DueDate?: number;
+    Notes?: string;
+    DateStatus?: string;
+}
 export type WbsJSON = {
-    id: string;
-    name: string;
-    filePath: string;
-    color?: string;
-    dates: {
-        G: string;
-        CAT: string;
-        ST: string;
-        Task: string;
-        Fn?: string;
-        Owner?: string;
-        Start?: number
-        Due?: number;
-        Notes?: string;
-        DateST?: string;
-    }[]
+    ProjectId: string;
+    ProjectName: string;
+    Tasks: Timeline[]
 }[];
 
-export type Task = {
-    color: string;
-    id: string;
-    idName: string;
-    pjtName: string;
-    G: string;
-    Task: string;
-    Status?: string;
-    Fn?: string;
-    Owner?: string;
-    Start?: number;
-    Due?: number;
-    Notes?: string;
-    DateST?: string;
+export interface TaskByDate extends Timeline {
+    Color: string;
+    ProjectName: string;
+    ProjectId: string;
 };
 
 export type WbsByDate = {
-    [key: string]: Task[];
+    [key: string]: TaskByDate[];
 }
 
-export type Filter = {
-    G: string[];
-    pjtName: string[];
-    idName: string[];
-    Fn: string[];
-    Owner: string[];
-    DateST: string[];
-    Status: string[];
+
+export type XlsOutput = {
+    projects: WbsJSON,
+    wbsByDate: WbsByDate,
+    pgcmDates: number[]
 }
