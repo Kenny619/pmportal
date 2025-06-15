@@ -1,5 +1,5 @@
-import type { Task, WbsByDate } from "@/lib/etlWBS";
 import { create } from "zustand";
+import type { WbsByDate, Timeline, WbsJSON } from "@/types/type";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 export type Filter = {
@@ -18,6 +18,8 @@ export type WbsState = {
     setWbsOriginal: (wbs: WbsByDate) => void;
     pgcm: number[];
     setPgcms: (newPgcms: number[]) => void;
+    projects: WbsJSON;
+    setProjects: (newProjects: WbsJSON) => void;
     defaultFilter: Filter;
     currentFilter: Filter;
     createFilter: (wbsByDate: WbsByDate) => void;
@@ -49,6 +51,9 @@ export const wbsStore = create<WbsState>()(
                 Status: [],
             },
 
+            projects: {} as WbsJSON,
+            setProjects: (newProjects: WbsJSON) => set({ projects: newProjects }),
+
             currentFilter: {
                 G: [],
                 pjtName: [],
@@ -76,10 +81,10 @@ export const wbsStore = create<WbsState>()(
                                 if (!Object.keys(state.defaultFilter).includes(taskKey as keyof Filter)) continue;
 
                                 //if the task key is not a string, skip
-                                if (typeof taskObj[taskKey as keyof Task] !== 'string') continue;
+                                if (typeof taskObj[taskKey as keyof Timeline] !== 'string') continue;
 
                                 //if the task key is not in the default filter, add it
-                                newFilter[taskKey as keyof Filter].add(taskObj[taskKey as keyof Task] as string);
+                                newFilter[taskKey as keyof Filter].add(taskObj[taskKey as keyof Timeline] as string);
                             }
                         }
                     }
@@ -207,6 +212,7 @@ export const wbsStore = create<WbsState>()(
             name: 'wbs-storage', // unique name for localStorage
             storage: createJSONStorage(() => localStorage),
             partialize: (state) => ({
+                projects: state.projects,
                 wbs: state.wbs,
                 wbsOriginal: state.wbsOriginal,
                 defaultFilter: state.defaultFilter,
@@ -225,8 +231,8 @@ export function applyFilter(wbsByDate: WbsByDate, filter: Filter) {
             let flg = true;
             const taskKeys = ["G", "pjtName", "Fn", "Owner", "DateST", "Status"];
             for (const taskKey of taskKeys) {
-                if (task[taskKey as keyof Task] === undefined) continue;
-                if (!filter[taskKey as keyof Filter].includes(task[taskKey as keyof Task] as string) ||
+                if (task[taskKey as keyof Timeline] === undefined) continue;
+                if (!filter[taskKey as keyof Filter].includes(task[taskKey as keyof Timeline] as string) ||
                     filter[taskKey as keyof Filter].length === 0
                 ) {
                     flg = false;

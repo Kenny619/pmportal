@@ -1,0 +1,17 @@
+export const columnNames = {
+    id: "id",
+    Stage: "G",
+    Category: "Cat",
+    Category2: "Category2",
+    Category3: "Category3",
+    Status: "ST",
+    Name: "Task",
+    Function: "Fn",
+    Owner: "Owner",
+    StartDate: "Start",
+    DueDate: "Due",
+    DateStatus: "DateST",
+    Notes: "Notes",
+    Dependency: "Dependency",
+    Progress: "Progress",
+}

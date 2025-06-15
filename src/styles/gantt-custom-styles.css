@@ -1,0 +1,68 @@
+.gantt_container {
+  font-size: 0.65rem;
+}
+/* Target the grid (left table area) */
+.gantt_grid {
+  font-size: 0.65rem; /* or any size you want */
+}
+
+/* Optionally control the header (column names) */
+.gantt_grid_head_cell {
+  font-size: 0.65rem;
+  font-weight: bold; /* if you want headers bold */
+}
+
+/* Optionally control the data cells */
+.gantt_grid_data .gantt_cell {
+  font-size: 0.65rem;
+}
+
+.gantt_column_id{
+    font-size: 0.4rem;
+}
+
+.gantt_task {
+  font-size: 0.65rem; /* Or any size you want */
+}
+
+.gantt_scale_cell {
+    font-size: 0.55rem;
+}
+
+.gantt_task_content {
+    font-size: 0.65rem;
+}
+
+.gantt_task_line {
+  border-radius: 3px;
+}
+
+/* Weekend styling */
+.gantt_grid_data .gantt_cell.weekend,
+.gantt_grid_data .gantt_cell.holiday,
+.gantt_scale_line.weekend,
+.gantt_scale_line.holiday,
+.gantt_grid_scale .gantt_grid_head_cell.weekend,
+.gantt_grid_scale .gantt_grid_head_cell.holiday {
+  background-color: #f5f5f5;
+}
+
+/* non-workday styling */
+.gantt_task .weekend {
+  background-color: #f0f0f0;
+}
+
+.gantt_scale_cell.weekend {
+  background-color: #e0e0e0;
+}
+
+/* Scale styling */
+.gantt_scale_line {
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.gantt_scale_line br + * {
+  font-size: 10px;
+  color: #666;
+}

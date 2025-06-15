@@ -1,11 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import { wbsStore, type WbsState } from "@/stores/wbsStore";
-import { WBS } from "@/lib/etlWBS";
+// import { WBS } from "@/lib/etlWBS";
 import { useEffect } from "react";
+import type { WbsByDate, WbsJSON } from "@/types/type";
 
 type WBSResponse = {
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	projects: any[];
+	projects: WbsJSON;
+	wbsByDate: WbsByDate;
 	pgcmDates: number[];
 };
 
@@ -16,6 +17,7 @@ export function useFetchWBS() {
 	const setWbsOriginal = wbsStore((state: WbsState) => state.setWbsOriginal);
 	const setWbs = wbsStore((state: WbsState) => state.setWbs);
 	const createFilter = wbsStore((state: WbsState) => state.createFilter);
+	const setProjects = wbsStore((state: WbsState) => state.setProjects);
 
 	const queryKey = ["WBSdata"];
 	const queryFn = async () => {
@@ -33,17 +35,17 @@ export function useFetchWBS() {
 
 	useEffect(() => {
 		if (data) {
-			const { projects, pgcmDates } = data;
+			const { projects, wbsByDate, pgcmDates } = data;
 			// Only update WBS if it's empty
 			if (Object.keys(stWbs).length === 0) {
-				const wbs = new WBS(projects);
-				setWbsOriginal(wbs.getDateWBS());
-				setWbs(wbs.getDateWBS());
-				createFilter(wbs.getDateWBS());
+				setProjects(projects);
+				setWbsOriginal(wbsByDate);
+				setWbs(wbsByDate);
+				createFilter(wbsByDate);
 				setPgcms(pgcmDates);
 			}
 		}
-	}, [data, setWbs, setWbsOriginal, createFilter, setPgcms, stWbs]);
+	}, [data, setWbs, setWbsOriginal, createFilter, setPgcms, stWbs, setProjects]);
 
 	return isLoading;
 }

@@ -1,3 +1,4 @@
+/*
 const colors: string[] = [
     // Set 1
     '#D6C68C', // Khaki
@@ -52,46 +53,37 @@ const colors: string[] = [
     '#5FC1B3', // Teal 3
     '#E56363'  // Red 3
 ];
-
+*/
+export interface Timeline {
+    TaskId?: string;
+    Stage: string;
+    Category: string;
+    Status: string;
+    TaskName: string;
+    Function?: string;
+    OwnerName?: string;
+    StartDate?: number;
+    DueDate?: number;
+    Notes?: string;
+    DateStatus?: string;
+}
 export type WbsJSON = {
     id: string;
     name: string;
     filePath: string;
     color?: string;
-    dates: {
-        G: string;
-        CAT: string;
-        ST: string;
-        Task: string;
-        Fn?: string;
-        Owner?: string;
-        Start?: number
-        Due?: number;
-        Notes?: string;
-        DateST?: string;
-    }[]
+    dates: Timeline[]
 }[];
 
-export type Task = {
-    color: string;
-    id: string;
-    idName: string;
-    pjtName: string;
-    G: string;
-    Task: string;
-    Status?: string;
-    Fn?: string;
-    Owner?: string;
-    Start?: number;
-    Due?: number;
-    Notes?: string;
-    DateST?: string;
+export interface TaskByDate extends Timeline {
+    Color: string;
+    ProjectName: string;
+    ProjectId: string;
 };
 
 export type WbsByDate = {
-    [key: string]: Task[];
+    [key: string]: TaskByDate[];
 }
-
 export type Filter = {
     G: string[];
     pjtName: string[];
@@ -126,21 +118,22 @@ export class WBS {
         this.dateWbs = {} as WbsByDate;
         for (const file of this.wbs) {
             for (const task of file.dates) {
-                if (!task.Due) continue;
-                this.dateWbs[task.Due] = [...(this.dateWbs[task.Due] || []), {
-                    G: task.G,
-                    color: file.color as string,
-                    id: file.id,
-                    pjtName: file.name,
-                    idName: `${file.id} - ${file.name}`,
-                    Task: task.Task,
-                    Status: task.ST,
-                    Fn: task.Fn,
-                    Owner: task.Owner,
-                    Start: task.Start,
-                    Due: task.Due,
+                if (!task.DueDate) continue;
+                this.dateWbs[task.DueDate] = [...(this.dateWbs[task.DueDate] || []), {
+                    Color: file.color as string,
+                    TaskId: task.TaskId,
+                    ProjectName: file.name,
+                    ProjectId: file.id,
+                    Stage: task.Stage,
+                    Category: task.Category,
+                    TaskName: task.TaskName,
+                    Status: task.Status,
+                    Function: task.Function,
+                    OwnerName: task.OwnerName,
+                    StartDate: task.StartDate,
+                    DueDate: task.DueDate,
                     Notes: task.Notes,
-                    DateST: task.DateST,
+                    DateStatus: task.DateStatus,
                 }]
             }
         }

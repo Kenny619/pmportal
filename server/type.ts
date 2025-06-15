@@ -1,5 +1,5 @@
 export interface Timeline {
-    TaskId?: string;
+    TaskId?: number;
     Stage: string;
     Category: string;
     Status: string;

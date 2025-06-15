@@ -7,6 +7,18 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+// Convert Excel serial number to JST Date
+export function excelSerialToJST(serial: number): Date {
+  // Excel's epoch starts from 1899-12-30
+  const excelEpoch = new Date(Date.UTC(1899, 11, 30));
+  const millisecondsPerDay = 24 * 60 * 60 * 1000;
+  const utcDate = new Date(excelEpoch.getTime() + serial * millisecondsPerDay);
+
+  // Convert to JST by adding 9 hours
+  return new Date(utcDate.getTime() + 9 * 60 * 60 * 1000);
+}
+
+
 // Convert Excel serial number to Date
 export function excelSerialToDate(serial: number): Date {
   // Excel's epoch starts from 1899-12-30

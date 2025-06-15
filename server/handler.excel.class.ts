@@ -1,10 +1,10 @@
-import type { WbsJSON, WbsByDate, XlsOutput } from './type.ts';
+import type { WbsJSON, WbsByDate, XlsOutput, Timeline } from './type.ts';
 import { promises as fs } from 'node:fs';
 import xlsx from 'xlsx';
 import path from 'node:path';
 import process from 'node:process';
 import { colors } from './colors.ts';
-
+import { columnNames } from './columnNames.ts';
 
 ////constants
 const sourceFileName = 'projects.txt';
@@ -41,25 +41,23 @@ class Xls {
 
 		const output: XlsOutput = { projects: [], wbsByDate: {}, pgcmDates: [] };
 
-		for (const { timeline, pgcm } of this.excelSheetsObj) {
-			const { ProjectId, ProjectName } = projectIdName.shift() || { ProjectId: "unknown id", ProjectName: "unknown project" };
-			output.projects.push({
-				ProjectId,
-				ProjectName,
-				Tasks: await this.getTimeline(timeline)
-			});
+		for (const { timeline, pgcms } of this.excelSheetsObj) {
 
-			const wbsByDate = await this.getWbsByDate(ProjectName, ProjectId, timeline);
+			//project data
+			const { ProjectId, ProjectName } = projectIdName.shift() || { ProjectId: "unknown id", ProjectName: "unknown project" };
+			const Tasks = await this.getTimeline(timeline);
+			output.projects.push({ ProjectId, ProjectName, Tasks });
+
+			//WbsByDate data
+			const wbsByDate = await this.getWbsByDate(ProjectName, ProjectId, Tasks);
 			for (const date in wbsByDate) {
-				if (output.wbsByDate[date]) {
-					output.wbsByDate[date].push(...wbsByDate[date]);
-				} else {
-					output.wbsByDate[date] = wbsByDate[date];
-				}
+				output.wbsByDate[date] = Object.hasOwn(output.wbsByDate, date) ? [...output.wbsByDate[date], ...wbsByDate[date]] : wbsByDate[date];
 			}
 
-			const pgcmDates = await this.getPGCMdates(pgcm);
+			//pgcm dates
+			const pgcmDates = await this.getPGCMdates(pgcms);
 			pgcmDates.forEach(date => this.pgcmDates.add(date));
+
 		}
 
 		output.pgcmDates = Array.from(this.pgcmDates);
@@ -78,25 +76,24 @@ class Xls {
 	}
 
 	async getTimeline(workSheetObj: {}) {
-		const data = xlsx.utils.sheet_to_json(workSheetObj);
+		const data: { [key: string]: any }[] = xlsx.utils.sheet_to_json(workSheetObj);
 
-		return data
-			.filter((d: any) => Object.hasOwn(d, "Due") && d.Due !== "-" && d.G !== "G" && d.ST !== "N/A")
-			.map((row: any, index: number) => {
+		const timeline = data
+			.filter((d: { [key: string]: any }) => Object.hasOwn(d, columnNames.DueDate) && d[columnNames.DueDate] !== "-" && d[columnNames.Stage] !== "G" && d[columnNames.Status] !== "N/A")
+			.map((row: { [key: string]: any }, index: number) => {
 				const { G, Cat, ST, Task, Fn, Owner, Start, Due, DateST, Notes } = row;
-				return { id: index + 1, Stage: G, Category: Cat, Status: ST, TaskName: Task, Function: Fn, OwnerName: Owner, StartDate: Start, DueDate: Due, DateStatus: DateST, Notes };
+				return { TaskId: index + 1, Stage: G, Category: Cat, Status: ST, TaskName: Task, Function: Fn, OwnerName: Owner, StartDate: Start, DueDate: Due, DateStatus: DateST, Notes: Notes } as Timeline
 			});
+
+		return timeline;
 	}
 
-	async getWbsByDate(ProjectName: string, ProjectId: string, timelineObjects: { [key: string]: any }[]) {
+	async getWbsByDate(ProjectName: string, ProjectId: string, Tasks: Timeline[]) {
 		const wbsByDate: WbsByDate = {};
-		for (const row of timelineObjects) {
-			const { DateST, G, Task, ST, Fn, Owner, Start, Due, Notes, Cat } = row;
-			if (DateST && G && Task && ST) {
-				wbsByDate[Due].push({
-					TaskId: row.id, Stage: G, Category: Cat, TaskName: Task, Status: ST, Function: Fn, OwnerName: Owner, StartDate: Start, DueDate: Due, Notes,
-					Color: colors.shift() || "gray", ProjectId, ProjectName, DateStatus: DateST
-				});
+		for (const row of Tasks) {
+			const { TaskId, Stage, TaskName, Status, Function, OwnerName, StartDate, DueDate, Notes, Category } = row;
+			if (DueDate) {
+				wbsByDate[DueDate] = wbsByDate[DueDate] ? [...wbsByDate[DueDate], { TaskId, Color: colors.shift() || "gray", ProjectId, ProjectName, Stage, Category, Status, TaskName, Function, OwnerName, StartDate, DueDate, Notes }] : [{ TaskId, Color: colors.shift() || "gray", ProjectId, ProjectName, Stage, Category, Status, TaskName, Function, OwnerName, StartDate, DueDate, Notes }];
 			}
 		}
 		return wbsByDate;
@@ -139,11 +136,10 @@ class Xls {
 
 			const files = await fs.readdir(repoPath);
 			for (const file of files) await storeExcelFilePaths(file, excelFilePaths);
-			return excelFilePaths;
+			// return excelFilePaths;
 		};
 		const excelFilePaths: string[] = [];
-		this.excelFilePaths = await findExcelFiles(this.repositoryPath, excelFilePaths);
-		return this.excelFilePaths;
+		await findExcelFiles(this.repositoryPath, this.excelFilePaths);
 	}
 
 	getProjectIdName() {
@@ -165,7 +161,6 @@ async function getProjectsDirectory(): Promise<string | undefined> {
 	try {
 		// Check if the file exists by attempting to access it
 		await fs.access(filePath);
-		console.log({ filePath });
 
 		// Read the file content
 		const content = await fs.readFile(filePath, 'utf-8');
