@@ -1,3 +1,6 @@
+#project.txt
+projects.txt
+
 # biz files
 .xlsx
 .xls
@@ -31,3 +34,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+projects.txt

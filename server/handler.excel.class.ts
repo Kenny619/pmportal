@@ -3,7 +3,7 @@ import { promises as fs } from 'node:fs';
 import xlsx from 'xlsx';
 import path from 'node:path';
 import process from 'node:process';
-import { colors } from './colors.ts';
+import { cls } from './colors.ts';
 import { columnNames } from './columnNames.ts';
 
 ////constants
@@ -42,9 +42,8 @@ class Xls {
 		const output: XlsOutput = { projects: [], wbsByDate: {}, pgcmDates: [] };
 
 		for (const { timeline, pgcms } of this.excelSheetsObj) {
-
 			//project data
-			const { ProjectId, ProjectName } = projectIdName.shift() || { ProjectId: "unknown id", ProjectName: "unknown project" };
+			const { ProjectId, ProjectName } = projectIdName.shift() || { ProjectId: 'unknown id', ProjectName: 'unknown project' };
 			const Tasks = await this.getTimeline(timeline);
 			output.projects.push({ ProjectId, ProjectName, Tasks });
 
@@ -56,20 +55,18 @@ class Xls {
 
 			//pgcm dates
 			const pgcmDates = await this.getPGCMdates(pgcms);
-			pgcmDates.forEach(date => this.pgcmDates.add(date));
-
+			pgcmDates.forEach((date) => this.pgcmDates.add(date));
 		}
 
 		output.pgcmDates = Array.from(this.pgcmDates);
 		return output;
 	}
 
-
 	async getPGCMdates(workSheetObj: {}) {
 		const dates: { [key: string]: number | undefined }[] = xlsx.utils.sheet_to_json(workSheetObj);
 		return dates.reduce((acc: number[], curr: { [key: string]: number | undefined }) => {
-			if (curr["-"] !== undefined) {
-				if (!acc.includes(curr["-"])) acc.push(curr["-"]);
+			if (curr['-'] !== undefined) {
+				if (!acc.includes(curr['-'])) acc.push(curr['-']);
 			}
 			return acc;
 		}, [] as number[]);
@@ -79,10 +76,10 @@ class Xls {
 		const data: { [key: string]: any }[] = xlsx.utils.sheet_to_json(workSheetObj);
 
 		const timeline = data
-			.filter((d: { [key: string]: any }) => Object.hasOwn(d, columnNames.DueDate) && d[columnNames.DueDate] !== "-" && d[columnNames.Stage] !== "G" && d[columnNames.Status] !== "N/A")
+			.filter((d: { [key: string]: any }) => Object.hasOwn(d, columnNames.DueDate) && d[columnNames.DueDate] !== '-' && d[columnNames.Stage] !== 'G' && d[columnNames.Status] !== 'N/A')
 			.map((row: { [key: string]: any }, index: number) => {
 				const { G, Cat, ST, Task, Fn, Owner, Start, Due, DateST, Notes } = row;
-				return { TaskId: index + 1, Stage: G, Category: Cat, Status: ST, TaskName: Task, Function: Fn, OwnerName: Owner, StartDate: Start, DueDate: Due, DateStatus: DateST, Notes: Notes } as Timeline
+				return { TaskId: index + 1, Stage: G, Category: Cat, Status: ST, TaskName: Task, Function: Fn, OwnerName: Owner, StartDate: Start, DueDate: Due, DateStatus: DateST, Notes: Notes } as Timeline;
 			});
 
 		return timeline;
@@ -93,7 +90,9 @@ class Xls {
 		for (const row of Tasks) {
 			const { TaskId, Stage, TaskName, Status, Function, OwnerName, StartDate, DueDate, Notes, Category } = row;
 			if (DueDate) {
-				wbsByDate[DueDate] = wbsByDate[DueDate] ? [...wbsByDate[DueDate], { TaskId, Color: colors.shift() || "gray", ProjectId, ProjectName, Stage, Category, Status, TaskName, Function, OwnerName, StartDate, DueDate, Notes }] : [{ TaskId, Color: colors.shift() || "gray", ProjectId, ProjectName, Stage, Category, Status, TaskName, Function, OwnerName, StartDate, DueDate, Notes }];
+				wbsByDate[DueDate] = wbsByDate[DueDate]
+					? [...wbsByDate[DueDate], { TaskId, Color: cls.select(ProjectId), ProjectId, ProjectName, Stage, Category, Status, TaskName, Function, OwnerName, StartDate, DueDate, Notes }]
+					: [{ TaskId, Color: cls.select(ProjectId), ProjectId, ProjectName, Stage, Category, Status, TaskName, Function, OwnerName, StartDate, DueDate, Notes }];
 			}
 		}
 		return wbsByDate;
@@ -144,9 +143,9 @@ class Xls {
 
 	getProjectIdName() {
 		const projectIdName = this.excelFilePaths.map((filePath) => {
-			const fileName = filePath.split("\\");
-			const ProjectId = fileName[fileName.length - 2].match(/(.*?) /)?.[1] || "unknown project";
-			const ProjectName = fileName[fileName.length - 2].match(/[a-zA-Z0-9]{7}-[a-zA-Z0-9]{4} (.*?)$/)?.[1] || "unknown project";
+			const fileName = filePath.split('\\');
+			const ProjectId = fileName[fileName.length - 2].match(/(.*?) /)?.[1] || 'unknown project';
+			const ProjectName = fileName[fileName.length - 2].match(/[a-zA-Z0-9]{7}-[a-zA-Z0-9]{4} (.*?)$/)?.[1] || 'unknown project';
 			return { ProjectId, ProjectName };
 		});
 		return projectIdName;
@@ -173,7 +172,6 @@ async function getProjectsDirectory(): Promise<string | undefined> {
 		console.log(`could not find ${filePath}`);
 		throw new Error(`could not find ${filePath}`);
 	}
-
 }
 
 export default Xls;

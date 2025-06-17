@@ -1,12 +1,12 @@
-import { Separator } from "@/components/ui/separator";
-import { dateNavStore, type DateNavState } from "@/stores/calendarStore";
-import { dateToExcelSerial } from "@/lib/utils";
-import { wbsStore, type WbsState } from "@/stores/wbsStore";
-import { LoadingSpinner } from "@/components/loading";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import CalenderWeekTask from "./calendar-week-task";
-import { AlarmClockCheck } from "lucide-react";
-import { useFetchWBS } from "@/query/queryWBS";
+import { Separator } from '@/components/ui/separator';
+import { dateNavStore, type DateNavState } from '@/stores/calendarStore';
+import { dateToExcelSerial } from '@/lib/utils';
+import { wbsStore, type WbsState } from '@/stores/wbsStore';
+import { LoadingSpinner } from '@/components/loading';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import CalenderWeekTask from './calendar-week-task';
+import { AlarmClockCheck } from 'lucide-react';
+import { useFetchWBS } from '@/query/queryWBS';
 export default function CalendarWeek() {
 	const stFiveDays = dateNavStore((state: DateNavState) => state.nextFiveDays);
 	const wbs = wbsStore((state: WbsState) => state.wbs);
@@ -17,20 +17,12 @@ export default function CalendarWeek() {
 			{/* date bar */}
 			<div className="flex flex-nowrap flex-col lg:flex-row gap-2 mt-5 px-4">
 				{stFiveDays.map((day) => (
-					<div
-						key={day.toLocaleString("en-US", { day: "numeric" })}
-						className="y-4 w-full lg:w-1/5"
-					>
+					<div key={day.toLocaleString('en-US', { day: 'numeric' })} className="y-4 w-full lg:w-1/5">
 						<h3 className="mt-4 mb-1 text-md">
-							{day.toLocaleString("en-US", { day: "numeric" })}
-							<span className="text-xxxs ml-1">
-								{day.toLocaleString("en-US", { weekday: "long" })}
-							</span>
+							{day.toLocaleString('en-US', { day: 'numeric' })}
+							<span className="text-xxxs ml-1">{day.toLocaleString('en-US', { weekday: 'long' })}</span>
 						</h3>
-						<Separator
-							orientation="horizontal"
-							className="mb-2 border-neutral-200"
-						/>
+						<Separator orientation="horizontal" className="mb-2 border-neutral-200" />
 						{/* Events for mobile view */}
 						<div className="flex flex-col">
 							{pgcms.includes(dateToExcelSerial(day)) && (
@@ -45,12 +37,7 @@ export default function CalendarWeek() {
 						{/* tasks for mobile view */}
 						<div className="block lg:hidden">
 							{Object.keys(wbs).includes(dateToExcelSerial(day).toString()) &&
-								wbs[dateToExcelSerial(day).toString()]?.map((task) => (
-									<CalenderWeekTask
-										key={`${task.id}-${task.pjtName}-${task.Task}-${task.Fn}`}
-										{...task}
-									/>
-								))}
+								wbs[dateToExcelSerial(day).toString()]?.map((task) => <CalenderWeekTask key={`${task.TaskId}-${task.ProjectName}-${task.TaskName}-${task.Function}`} {...task} />)}
 						</div>
 					</div>
 				))}
@@ -65,19 +52,9 @@ export default function CalendarWeek() {
 							</div>
 						) : (
 							stFiveDays.map((day) => (
-								<div
-									key={`${day.toLocaleString("en-US", { day: "numeric" })}-task`}
-									className="y-4 w-full lg:w-1/5"
-								>
-									{Object.keys(wbs).includes(
-										dateToExcelSerial(day).toString(),
-									) &&
-										wbs[dateToExcelSerial(day).toString()]?.map((task) => (
-											<CalenderWeekTask
-												key={`${task.id}-${task.pjtName}-${task.Task}-${task.Fn}`}
-												{...task}
-											/>
-										))}
+								<div key={`${day.toLocaleString('en-US', { day: 'numeric' })}-task`} className="y-4 w-full lg:w-1/5">
+									{Object.keys(wbs).includes(dateToExcelSerial(day).toString()) &&
+										wbs[dateToExcelSerial(day).toString()]?.map((task) => <CalenderWeekTask key={`${task.TaskId}-${task.ProjectName}-${task.TaskName}-${task.Function}`} {...task} />)}
 								</div>
 							))
 						)}
